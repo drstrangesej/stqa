@@ -1,0 +1,54 @@
+import React from 'react';
+import { Checkbox } from "@/components/ui/checkbox"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+
+const checkboxItems = [
+  "Option 1", "Option 2", "Option 3", "Option 4", "Option 5",
+  "Option 6", "Option 7", "Option 8", "Option 9", "Option 10"
+];
+
+const comboboxItems = [
+  "Combobox 1", "Combobox 2", "Combobox 3", "Combobox 4", "Combobox 5"
+];
+
+export default function AttractiveWebsite() {
+  return (
+    <div className="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex items-center justify-center">
+      <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-2xl">
+        <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Attractive Form</h1>
+        
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold mb-4 text-gray-700">Checkboxes</h2>
+          <div className="grid grid-cols-2 gap-4">
+            {checkboxItems.map((item, index) => (
+              <div key={index} className="flex items-center space-x-2">
+                <Checkbox id={`checkbox-${index}`} />
+                <label htmlFor={`checkbox-${index}`} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                  {item}
+                </label>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div>
+          <h2 className="text-xl font-semibold mb-4 text-gray-700">Comboboxes</h2>
+          <div className="space-y-4">
+            {comboboxItems.map((item, index) => (
+              <Select key={index}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder={`Select ${item}`} />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="option1">Option 1</SelectItem>
+                  <SelectItem value="option2">Option 2</SelectItem>
+                  <SelectItem value="option3">Option 3</SelectItem>
+                </SelectContent>
+              </Select>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
